@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff6f2">
+  <meta name="description" content="A little love letter for Buls, with all my heart.">
+  <title>For My Buls | A letter from my heart</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fffaf6;
+      --ink: #382d30;
+      --muted: #79696b;
+      --rose: #b64e61;
+      --rose-dark: #8d3549;
+      --peach: #f5b59d;
+      --blush: #f7d8d8;
+      --sage: #71816b;
+      --line: rgba(111, 72, 71, .16);
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 7% 12%, rgba(249, 200, 193, .46), transparent 34rem),
+        radial-gradient(ellipse at 93% 38%, rgba(249, 218, 188, .42), transparent 35rem),
+        #fff7f3;
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      background-image: radial-gradient(rgba(128, 85, 78, .12) .55px, transparent .55px);
+      background-size: 8px 8px;
+      content: "";
+      opacity: .21;
+      pointer-events: none;
+    }
+
+    button { font: inherit; }
+
+    button:focus-visible, a:focus-visible, summary:focus-visible {
+      outline: 3px solid #a44a5a;
+      outline-offset: 4px;
+    }
+
+    .ambient-hearts {
+      position: fixed;
+      z-index: -1;
+      overflow: hidden;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .ambient-hearts span {
+      position: absolute;
+      bottom: -3rem;
+      color: rgba(190, 92, 108, .26);
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      animation: float-heart 17s linear infinite;
+    }
+
+    .ambient-hearts span:nth-child(1) { left: 7%; animation-duration: 18s; }
+    .ambient-hearts span:nth-child(2) { left: 20%; animation-delay: -9s; animation-duration: 21s; font-size: 1rem; }
+    .ambient-hearts span:nth-child(3) { left: 35%; animation-delay: -4s; animation-duration: 19s; }
+    .ambient-hearts span:nth-child(4) { left: 56%; animation-delay: -13s; animation-duration: 23s; font-size: 1.1rem; }
+    .ambient-hearts span:nth-child(5) { left: 74%; animation-delay: -7s; animation-duration: 20s; }
+    .ambient-hearts span:nth-child(6) { left: 91%; animation-delay: -15s; animation-duration: 22s; font-size: 1.2rem; }
+
+    @keyframes float-heart {
+      0% { transform: translate3d(0, 0, 0) rotate(-12deg); opacity: 0; }
+      12% { opacity: .9; }
+      85% { opacity: .65; }
+      100% { transform: translate3d(28px, -112vh, 0) rotate(18deg); opacity: 0; }
+    }
+
+    .page-wrap { width: min(100% - 40px, 1080px); margin-inline: auto; }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      color: var(--rose-dark);
+    }
+
+    .wordmark, .edition {
+      margin: 0;
+      font-size: .74rem;
+      font-weight: 650;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .wordmark { display: flex; align-items: center; gap: 9px; }
+    .wordmark-heart { font-size: 1rem; }
+    .edition { color: var(--muted); }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      align-items: center;
+      min-height: 510px;
+      overflow: hidden;
+      padding: clamp(32px, 7vw, 80px);
+      border: 1px solid rgba(148, 83, 83, .13);
+      border-radius: 6px;
+      background: linear-gradient(125deg, rgba(255, 240, 232, .96) 0%, rgba(250, 221, 220, .95) 56%, rgba(244, 193, 177, .9) 100%);
+      box-shadow: 0 24px 80px rgba(108, 64, 62, .1);
+    }
+
+    .hero::before, .hero::after {
+      position: absolute;
+      z-index: 0;
+      border: 1px solid rgba(255, 255, 255, .5);
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero::before { inset: 12px; }
+    .hero::after { inset: 18px; border-color: rgba(151, 89, 89, .09); }
+
+    .hero-copy, .hero-photo-wrap { position: relative; z-index: 1; }
+    .hero-copy { padding-block: 12px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 19px;
+      color: var(--rose-dark);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before { width: 22px; height: 1px; background: currentColor; content: ""; }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 540px;
+      margin-bottom: 17px;
+      font-family: var(--serif);
+      font-size: clamp(3.3rem, 7.7vw, 6.3rem);
+      font-weight: 500;
+      line-height: .98;
+    }
+
+    h1 .heart { color: var(--rose); white-space: nowrap; }
+
+    .hero-subtitle {
+      max-width: 340px;
+      margin-bottom: 28px;
+      color: #655256;
+      font-family: var(--serif);
+      font-size: 1.22rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--rose-dark);
+      font-size: .87rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .text-link .arrow { font-size: 1.1rem; transition: transform .2s ease; }
+    .text-link:hover .arrow { transform: translateY(3px); }
+
+    .hero-photo-wrap {
+      justify-self: end;
+      width: min(100%, 355px);
+      transform: rotate(2.4deg);
+      animation: arrive .75s .12s both;
+    }
+
+    .hero-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 51% 44%;
+      border: 8px solid #fffdf8;
+      box-shadow: 0 16px 38px rgba(80, 48, 47, .2);
+    }
+
+    .photo-note {
+      position: absolute;
+      right: -13px;
+      bottom: -20px;
+      max-width: 205px;
+      padding: 13px 17px;
+      color: #50474a;
+      background: #fffaf0;
+      box-shadow: 0 7px 18px rgba(75, 54, 42, .12);
+      font-family: var(--serif);
+      font-size: .94rem;
+      font-style: italic;
+      line-height: 1.4;
+      transform: rotate(-4deg);
+    }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(16px) rotate(2.4deg); }
+      to { opacity: 1; transform: translateY(0) rotate(2.4deg); }
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--rose-dark);
+      font-size: .69rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      margin-bottom: 14px;
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 4.4vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    .memories { padding-block: 98px 84px; }
+
+    .section-intro {
+      max-width: 500px;
+      margin-bottom: 29px;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: 1.13rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 22px 17px;
+    }
+
+    .memory {
+      grid-column: span 4;
+      margin: 0;
+      animation: fade-up .55s both;
+    }
+
+    .memory:nth-child(1), .memory:nth-child(5), .memory:nth-child(9) { grid-column: span 5; }
+    .memory:nth-child(2), .memory:nth-child(6), .memory:nth-child(8) { grid-column: span 3; }
+    .memory:nth-child(3), .memory:nth-child(4), .memory:nth-child(7) { grid-column: span 4; }
+    .memory:nth-child(3n + 2) { animation-delay: .08s; }
+    .memory:nth-child(3n) { animation-delay: .16s; }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .memory-photo-button {
+      display: block;
+      width: 100%;
+      padding: 7px;
+      border: 1px solid rgba(112, 82, 76, .12);
+      border-radius: 3px;
+      background: #fffdf9;
+      box-shadow: 0 8px 22px rgba(99, 70, 64, .09);
+      cursor: zoom-in;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .memory-photo-button:hover { transform: translateY(-4px) rotate(-.6deg); box-shadow: 0 15px 30px rgba(99, 70, 64, .15); }
+
+    .memory img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.08 / 1;
+      object-fit: cover;
+      background: #f2dfd8;
+    }
+
+    .memory:nth-child(2) img, .memory:nth-child(5) img, .memory:nth-child(9) img { aspect-ratio: .92 / 1; }
+    .memory:nth-child(4) img, .memory:nth-child(8) img { aspect-ratio: 1.2 / 1; }
+
+    .memory figcaption {
+      padding: 12px 3px 0;
+      color: #625256;
+      font-family: var(--serif);
+      font-size: .95rem;
+      font-style: italic;
+      line-height: 1.48;
+    }
+
+    .memory figcaption::before { display: block; margin-bottom: 5px; color: var(--rose); content: "♥"; font-size: .73rem; font-style: normal; }
+
+    .letter-section {
+      position: relative;
+      padding: clamp(38px, 7vw, 76px);
+      border: 1px solid rgba(119, 83, 71, .14);
+      border-radius: 5px;
+      background:
+        linear-gradient(rgba(255, 252, 247, .91), rgba(255, 252, 247, .91)),
+        repeating-linear-gradient(0deg, transparent 0 34px, rgba(157, 119, 107, .12) 34px 35px);
+      box-shadow: 0 18px 48px rgba(109, 75, 64, .07);
+    }
+
+    .letter-heading { max-width: 620px; margin-bottom: 30px; }
+
+    .letter-rule { width: 55px; height: 1px; margin: 25px 0; background: var(--rose); }
+
+    .letters { max-width: 780px; }
+
+    .letter-note { border-top: 1px solid var(--line); }
+    .letter-note:last-child { border-bottom: 1px solid var(--line); }
+
+    .letter-note summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 18px 2px;
+      color: #49373b;
+      font-family: var(--serif);
+      font-size: 1.13rem;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .letter-note summary::-webkit-details-marker { display: none; }
+    .letter-note summary::after { color: var(--rose); content: "+"; font-family: var(--sans); font-size: 1.25rem; }
+    .letter-note[open] summary::after { content: "−"; }
+
+    .letter-body {
+      max-width: 710px;
+      padding: 0 5px 13px;
+      color: #53484a;
+      font-family: var(--serif);
+      font-size: 1.06rem;
+      line-height: 1.8;
+    }
+
+    .letter-body p { margin-bottom: 17px; }
+    .letter-body p:last-child { margin-bottom: 12px; }
+
+    .closing {
+      margin: 20px 0 0;
+      color: var(--rose-dark);
+      font-family: var(--serif);
+      font-size: 1.24rem;
+      font-style: italic;
+    }
+
+    .forgiveness {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .7fr);
+      align-items: center;
+      gap: 34px;
+      margin: 70px 0 85px;
+      padding: clamp(29px, 5vw, 49px);
+      border-top: 1px solid rgba(134, 86, 76, .22);
+      border-bottom: 1px solid rgba(134, 86, 76, .22);
+      background: linear-gradient(108deg, rgba(251, 224, 218, .75), rgba(255, 246, 230, .78) 58%, rgba(230, 235, 217, .57));
+      transition: background .45s ease;
+    }
+
+    .forgiveness.is-accepted { background: linear-gradient(110deg, #f8d8d6, #ffefd5 52%, #dce8d6); }
+
+    .forgiveness-copy { max-width: 475px; }
+    .forgiveness-copy .section-heading { font-size: clamp(2rem, 3.5vw, 2.8rem); }
+
+    .no-pressure { margin-bottom: 0; color: #6d5d5e; font-family: var(--serif); font-size: 1.06rem; }
+
+    .choice-side { min-width: 0; }
+
+    .choice-box {
+      position: relative;
+      min-height: 66px;
+      width: 100%;
+      max-width: 440px;
+      margin-inline: auto;
+    }
+
+    .choice-button {
+      position: absolute;
+      top: 5px;
+      min-height: 48px;
+      padding: 10px 19px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: .87rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: transform .22s ease, background .2s ease, box-shadow .2s ease;
+      cursor: pointer;
+    }
+
+    .yes-button {
+      left: 2px;
+      color: white;
+      background: var(--rose-dark);
+      box-shadow: 0 6px 16px rgba(141, 53, 73, .2);
+    }
+
+    .yes-button:hover { background: #772b3d; box-shadow: 0 9px 21px rgba(141, 53, 73, .28); transform: translateY(-2px); }
+
+    .no-button {
+      left: 55%;
+      color: #554347;
+      border-color: rgba(101, 72, 71, .23);
+      background: rgba(255, 252, 246, .83);
+      box-shadow: 0 5px 13px rgba(98, 70, 66, .09);
+    }
+
+    .no-button:hover { background: #fffdf9; }
+
+    .gentle-note {
+      min-height: 25px;
+      margin: 11px 0 0;
+      color: #6d5d5e;
+      font-family: var(--serif);
+      font-size: .95rem;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .response-view {
+      max-width: 530px;
+      text-align: center;
+      animation: fade-up .5s both;
+    }
+
+    .response-view[hidden] { display: none; }
+    .response-heart { display: block; margin-bottom: 8px; color: var(--rose); font-size: 2rem; }
+    .response-view h3 { margin-bottom: 8px; font-family: var(--serif); font-size: 1.85rem; font-weight: 500; line-height: 1.18; }
+    .response-view p { margin: 0; color: #665657; font-family: var(--serif); font-size: 1.06rem; }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 0 32px;
+      color: #816f70;
+      font-family: var(--serif);
+      font-size: .86rem;
+    }
+
+    .lightbox {
+      width: min(92vw, 900px);
+      max-width: none;
+      max-height: 92vh;
+      padding: 12px;
+      border: 0;
+      border-radius: 4px;
+      background: #fffdf9;
+      box-shadow: 0 25px 90px rgba(35, 23, 26, .32);
+    }
+
+    .lightbox::backdrop { background: rgba(47, 31, 35, .76); backdrop-filter: blur(3px); }
+    .lightbox img { display: block; max-width: 100%; max-height: 76vh; margin-inline: auto; object-fit: contain; }
+
+    .lightbox-caption {
+      margin: 9px 48px 2px;
+      color: #544449;
+      font-family: var(--serif);
+      font-style: italic;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 13px;
+      right: 13px;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: #493b3e;
+      background: rgba(255, 253, 249, .94);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .burst-heart {
+      position: fixed;
+      z-index: 3;
+      top: 47%;
+      left: 50%;
+      color: var(--rose);
+      font-size: 1.6rem;
+      pointer-events: none;
+      animation: burst 1.35s cubic-bezier(.2, .7, .2, 1) both;
+    }
+
+    @keyframes burst {
+      from { transform: translate(-50%, -50%) scale(.3) rotate(0); opacity: 0; }
+      15% { opacity: 1; }
+      to { transform: translate(calc(-50% + var(--drift)), calc(-50% + var(--rise))) scale(1.15) rotate(var(--tilt)); opacity: 0; }
+    }
+
+    @media (max-width: 700px) {
+      .page-wrap { width: min(100% - 28px, 560px); }
+      .masthead { min-height: 62px; }
+      .edition { font-size: .62rem; }
+      .hero { grid-template-columns: 1fr; gap: 26px; min-height: 0; padding: 42px 30px 48px; }
+      .hero-copy { padding: 7px 0 0; }
+      h1 { font-size: clamp(3.25rem, 14vw, 5rem); }
+      .hero-subtitle { max-width: 300px; }
+      .hero-photo-wrap { justify-self: center; width: min(78%, 300px); margin: 0 8px 10px 0; }
+      .memories { padding-block: 73px 64px; }
+      .gallery { gap: 19px 12px; }
+      .memory, .memory:nth-child(n) { grid-column: span 6; }
+      .memory:nth-child(3n + 2) { transform: translateY(12px); }
+      .memory:nth-child(9) { grid-column: 4 / span 6; }
+      .memory figcaption { font-size: .89rem; }
+      .forgiveness { grid-template-columns: 1fr; gap: 23px; margin-block: 53px 62px; }
+      .choice-box { max-width: 390px; }
+      .page-footer { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 390px) {
+      .page-wrap { width: min(100% - 22px, 560px); }
+      .hero { padding-inline: 23px; }
+      .choice-button { padding-inline: 13px; font-size: .79rem; }
+      .yes-button { left: 0; }
+      .no-button { left: 58%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-hearts" aria-hidden="true">
+    <span>♡</span><span>♥</span><span>♡</span><span>♥</span><span>♡</span><span>♥</span>
+  </div>
+
+  <div class="page-wrap">
+    <header class="masthead">
+      <p class="wordmark"><span class="wordmark-heart" aria-hidden="true">♥</span> A little letter for Buls</p>
+      <p class="edition">Written with love, always</p>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">From my heart to yours</p>
+          <h1 id="page-title">For My<br>Buls <span class="heart" aria-label="heart">♥</span></h1>
+          <p class="hero-subtitle">A little place for the words I should have said with honesty from the very start.</p>
+          <a class="text-link" href="#my-letter">Read my letter <span class="arrow" aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="hero-photo-wrap">
+          <img class="hero-photo" src="Image (79).jpg" alt="A sweet memory of us together, with flowers in your arms." fetchpriority="high">
+          <figcaption class="photo-note">Flowers for you; all my tomorrows, too.</figcaption>
+        </figure>
+      </section>
+
+      <section class="memories" aria-labelledby="memories-heading">
+        <p class="section-kicker">Little pieces of us</p>
+        <h2 class="section-heading" id="memories-heading">My favorite memories<br>have you in them.</h2>
+        <p class="section-intro">Every photo holds a moment I keep close, and another reason I am grateful for you.</p>
+
+        <div class="gallery">
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: My favorite face, in every kind of light.">
+              <img src="Image (71).jpg" alt="Buls smiling in the sunshine." loading="lazy">
+            </button>
+            <figcaption>My favorite face, in every kind of light.</figcaption>
+          </figure>
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: The two of us, exactly where I want to be.">
+              <img src="Image (72).jpg" alt="A selfie of us together." loading="lazy">
+            </button>
+            <figcaption>The two of us, exactly where I want to be.</figcaption>
+          </figure>
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: Even the quiet, sleepy moments feel like home with you.">
+              <img src="Image (73).jpg" alt="A cozy, sleepy moment together." loading="lazy">
+            </button>
+            <figcaption>Even the quiet, sleepy moments feel like home with you.</figcaption>
+          </figure>
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: Every ordinary day feels softer with you beside me.">
+              <img src="Image (74).jpg" alt="A candid photo of the two of us together." loading="lazy">
+            </button>
+            <figcaption>Every ordinary day feels softer with you beside me.</figcaption>
+          </figure>
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: With you beside me, even the view has competition.">
+              <img src="Image (75).jpg" alt="Us together with a green mountain view behind us." loading="lazy">
+            </button>
+            <figcaption>With you beside me, even the view has competition.</figcaption>
+          </figure>
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: My favorite co-pilot for all the little adventures.">
+              <img src="Image (76).jpg" alt="The two of us on a motorcycle adventure." loading="lazy">
+            </button>
+            <figcaption>My favorite co-pilot for all the little adventures.</figcaption>
+          </figure>
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: One look at you, and my whole day changes.">
+              <img src="Image (77).jpg" alt="A close-up selfie of us together." loading="lazy">
+            </button>
+            <figcaption>One look at you, and my whole day changes.</figcaption>
+          </figure>
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: Wherever the road goes, I am glad it brought me to you.">
+              <img src="Image (78).jpg" alt="A forest road trip with you." loading="lazy">
+            </button>
+            <figcaption>Wherever the road goes, I am glad it brought me to you.</figcaption>
+          </figure>
+          <figure class="memory">
+            <button class="memory-photo-button" type="button" aria-label="View photo: Flowers for you; all my tomorrows, too.">
+              <img src="Image (79).jpg" alt="Us together, holding a beautiful bouquet of flowers." loading="lazy">
+            </button>
+            <figcaption>Flowers for you; all my tomorrows, too.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="letter-section" id="my-letter" aria-labelledby="letter-heading">
+        <div class="letter-heading">
+          <p class="section-kicker">The truth, from me</p>
+          <h2 class="section-heading" id="letter-heading">I am truly sorry, Baby.</h2>
+          <p class="section-intro">You deserve the whole truth, not excuses. I know my choice to hide it hurt you and broke the trust you gave me. I am deeply sorry.</p>
+          <div class="letter-rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="letters">
+          <details class="letter-note" open>
+            <summary>Message 1 · Owning the hurt I caused</summary>
+            <div class="letter-body">
+              <p>Baby, subong mas naintindihan ko kung ngaa nasakitan gid ikaw. Kabalo ko nga nagtuo ka nga wala pa ko kaagi sang una, kag basi dako gid ang kahulugan sina para sa imo sang na ubra ta na. Sorry gid, Baby, kay ginpabay-an ko nga magpati ka sa butang nga indi gali toud.</p>
+              <p>Wala ko ginahambal ini para i-justify ang akon pagbinutig. Nahadlok lang gid ko nga basi lain na ang pagtan-aw mo sa akon kag basi madula ka sa akon. Pero narealize ko nga bisan ano pa ka nami ang akon intention, nasakitan ka gihapon tungod sa akon ginpili nga himuon.</p>
+              <p>Baby, gusto ko nga mahibaluan mo nga indi ko ginakumpara ang imo kaugalingon sa akon past. Indi man kinahanglan nga ikaw ang una sa akon para mangin espesyal ka sa akon kabuhi. Ang akon paghigugma sa imo indi dapat masukod sa sina nga butang.</p>
+              <p>Kabalo ko nga indi ko mapilit ang imo tagipusuon nga mag-okay dayon. Respetuhon ko ang time nga kinahanglan mo. Palangga ta ka gid, Baby, kag kon may chance pa nga ma-ayo naton ini, gusto ko nga sugdan liwat sa toud pagid kag sa pagsalig nga akon mismo nag guba.</p>
+            </div>
+          </details>
+
+          <details class="letter-note">
+            <summary>Message 2 · The honesty you deserved</summary>
+            <div class="letter-body">
+              <p>Baby, may gusto pa gid ko tani ihambal sa imo. 🥺 Kabalo ko nga indi mahapos para sa imo nga batonon ang tanan, especially kay dugay ko man ginpanago sa imo ang kamatuoran. Kung pwede ko lang ibalik ang time, tani sang una pa lang nga nakilala ta, naging honest na ko sa imo parte sa past ko. Tani wala na lang ko nahadlok maghambal sang matuod, kay basi indi tani ta subong nagaantos pareho sini.</p>
+              <p>Pero baby, indi ko na mabalik ang nagligad. Ang kaya ko lang himuon subong amo ang magin matuod sa imo kag ipakita nga seryoso gid ko sa aton. Tani batonon mo pa ko kung ano gid ko, pati ang mga parte sang akon kabuhi nga indi ko na mabag-o. Indi ko ginapangayo nga kalimtan mo dayon ang tanan nga natabo, kag indi ko man ginapa-expect nga okay ka dayon. Gusto ko lang tani nga indi mo ako husgaran sa akon past lang, kay may ara man ko sang present nga gusto ko ipakita sa imo kag future nga gusto ko updan ka.</p>
+              <p>By, antes pa ta nagkilalahay, may kabuhi na ko nga nagligad. Indi ko na ma-erase, pero wala na ko stay didto. Ikaw ang kaupod ko subong, ikaw ang gusto ko palanggaon, kag ikaw ang gusto ko updan sa mga butang nga wala pa natabo sa aton.</p>
+              <p>Kabalo ko nga nasakitan ka, kag wala ko gina acknowledge ang imo nabatyagan. Sorry gid nga ang tawo nga dapat nagahatag sa imo sang peace of mind amo pa ang rason nga nasakitan ka. Wala ko ginapamangkot nga patawaron mo ko dayon. Ang ginapangamuyo ko lang tani amo nga hatagan mo pa ko sang chance nga mapakita nga kaya ko magbag-o kag mangin mas honest sa imo.</p>
+              <p>Tani, by, bisan indi mo gusto ang tanan nga parte sang akon past, makita mo man gihapon ang tawo nga ara sa atubangan mo subong. Indi ko man perpekto, pero ang paghigugma ko sa imo sincere. Gusto ko nga magpadayon ta nga wala na sang tinaguanay, wala na sang binutig, kag may pagsalig liwat sa isa kag isa.</p>
+              <p>Tani mabaton mo pa ko. Tani ma pa tawad mo pa ko. Palangga tagd ka.</p>
+            </div>
+          </details>
+
+          <details class="letter-note">
+            <summary>Message 3 · Earning your trust with actions</summary>
+            <div class="letter-body">
+              <p>By, kabalo ko nga nasakitan gid ka, and I’m really sorry sa tanan. 😔 Indi ko man gusto nga mag-abot ta sa point nga madula imo trust sa akon. Ang tuod lang, nahadlok ko maghambal sang past ko sa imo kay basi lain imo pagtan-aw sa akon or basi madula ka sa akon. I thought nga kung indi ko na lang pag-isugid, indi ka na masakitan. Pero subong narealize ko nga mas dako gali ang sakit nga nahatag ko sa imo tungod sa akon pag binutig.</p>
+              <p>Wala ko ginahimo to kay gusto ko nga intoon ka or hmpngan imo feelings. Nahadlok lang gid ko, baby. Pero kabalo ko nga indi na rason para magbutig ko sa imo, especially ikaw nga wala man iban nga gusto kundi ang mangin honest lang ko sa imo.</p>
+              <p>Indi ko na mabalik ang nagligad ko, and I know nga indi man madula dayon ang sakit nga nabatyagan mo. Pero kung may isa ka butang nga gusto ko ipaintindi sa imo, amo na nga ikaw ang ginapili ko subong. Tapos na ang tanan nga sa una, kag indi ko gusto nga ang mga natabo sang una amo ang maguba sang aton relasyon subong.</p>
+              <p>I’m not asking you to forget everything right away, baby. Kabalo ko nga kinahanglan ko pa liwat ma-earn ang trust mo, kag handa ko man nga ipakita sa imo through my actions, indi lang sa words. Pasensya na gid kung tungod sa akon, nagduwa duwa ka na sa akon kag sa mga gina hmbal ko.</p>
+              <p>Palangga taka, kag indi ko gusto nga mawala ka. Gusto ko nga maabot ta ang point nga makapahuway na liwat ang imo heart kung ara ka sa akon. Indi ko mapromisa nga perfect ko, pero gusto ko nga sugod subong, mas mangin honest na gid ko sa imo. I’m sorry gid, by.</p>
+            </div>
+          </details>
+
+          <p class="closing">Palangga ta ka gid, Baby.</p>
+        </div>
+      </section>
+
+      <section class="forgiveness" id="forgiveness" aria-labelledby="forgiveness-heading">
+        <div class="forgiveness-copy">
+          <p class="section-kicker">Whenever your heart is ready</p>
+          <h2 class="section-heading" id="forgiveness-heading">Can you forgive me, Baby?</h2>
+          <p class="no-pressure">There is no deadline, and you don't owe me a yes. I will respect how you feel and show you I can be honest through what I do.</p>
+        </div>
+        <div class="choice-side">
+          <div class="ask-view" id="askView">
+            <div class="choice-box" id="choiceBox" aria-label="Your answer">
+              <button class="choice-button yes-button" id="yesButton" type="button">Yes, I forgive you ♥</button>
+              <button class="choice-button no-button" id="noButton" type="button">No, not right now</button>
+            </div>
+            <p class="gentle-note" id="gentleNote" aria-live="polite"></p>
+          </div>
+          <div class="response-view" id="successView" hidden tabindex="-1" aria-live="polite">
+            <span class="response-heart" aria-hidden="true">♥</span>
+            <h3>Thank you for giving us a chance, Baby.</h3>
+            <p>I know forgiveness isn't the end of this. I'll keep earning your trust with honesty, patience, and the way I treat your heart.</p>
+          </div>
+          <div class="response-view" id="noView" hidden tabindex="-1" aria-live="polite">
+            <span class="response-heart" aria-hidden="true">♡</span>
+            <h3>Thank you for being honest with me.</h3>
+            <p>You don't owe me forgiveness on a timeline. Take all the time you need. I'll listen, respect your feelings, and keep showing you the truth.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <span>Made of memories, honesty, and a whole lot of love.</span>
+      <span>For you, Buls. Always. ♥</span>
+    </footer>
+  </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo memory">
+    <button class="lightbox-close" id="closeLightbox" type="button" aria-label="Close photo">×</button>
+    <img id="lightboxImage" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </dialog>
+
+  <script>
+    const photoButtons = document.querySelectorAll(".memory-photo-button");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+
+    photoButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const photo = button.querySelector("img");
+        lightboxImage.src = photo.src;
+        lightboxImage.alt = photo.alt;
+        lightboxCaption.textContent = button.parentElement.querySelector("figcaption").textContent;
+        lightbox.showModal();
+      });
+    });
+
+    document.getElementById("closeLightbox").addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+
+    const choiceBox = document.getElementById("choiceBox");
+    const noButton = document.getElementById("noButton");
+    const gentleNote = document.getElementById("gentleNote");
+    let dodgeCount = 0;
+    const dodgeMessages = [
+      "Even my little button is nervous. Take your time, love.",
+      "Okay, okay. No pressure, promise. ♥",
+      "I'm staying put now. Your answer is always yours."
+    ];
+
+    function moveNoButton() {
+      if (dodgeCount >= 3) return;
+      const buttonBounds = noButton.getBoundingClientRect();
+      const boxBounds = choiceBox.getBoundingClientRect();
+      const maxLeft = Math.max(0, boxBounds.width - buttonBounds.width);
+      const maxTop = Math.max(0, boxBounds.height - buttonBounds.height);
+      const left = Math.round(Math.random() * maxLeft);
+      const top = Math.round(Math.random() * maxTop);
+
+      noButton.style.left = `${left}px`;
+      noButton.style.top = `${top}px`;
+      dodgeCount += 1;
+      gentleNote.textContent = dodgeMessages[dodgeCount - 1];
+    }
+
+    noButton.addEventListener("pointerenter", moveNoButton);
+    noButton.addEventListener("click", () => {
+      if (dodgeCount < 3) {
+        moveNoButton();
+        return;
+      }
+
+      document.getElementById("askView").hidden = true;
+      const noView = document.getElementById("noView");
+      noView.hidden = false;
+      noView.focus();
+    });
+
+    document.getElementById("yesButton").addEventListener("click", () => {
+      document.getElementById("askView").hidden = true;
+      document.getElementById("noView").hidden = true;
+      document.getElementById("successView").hidden = false;
+      document.getElementById("successView").focus();
+      document.getElementById("forgiveness").classList.add("is-accepted");
+
+      const heartSymbols = ["♥", "♡", "♥", "✿", "♥", "♡", "♥", "✿", "♥", "♡", "♥", "✿"];
+      heartSymbols.forEach((symbol, index) => {
+        const heart = document.createElement("span");
+        heart.className = "burst-heart";
+        heart.setAttribute("aria-hidden", "true");
+        heart.textContent = symbol;
+        heart.style.setProperty("--drift", `${Math.round((Math.random() - .5) * 330)}px`);
+        heart.style.setProperty("--rise", `${Math.round(-90 - Math.random() * 220)}px`);
+        heart.style.setProperty("--tilt", `${Math.round((Math.random() - .5) * 55)}deg`);
+        heart.style.animationDelay = `${index * 35}ms`;
+        document.body.append(heart);
+        heart.addEventListener("animationend", () => heart.remove(), { once: true });
+      });
+    });
+  </script>
+</body>
+</html>
